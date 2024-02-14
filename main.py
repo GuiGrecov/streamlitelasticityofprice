@@ -61,7 +61,7 @@ def tratamento(percentual, df_order_elasticity ):
 with tab1:
     with st.container():
         st.markdown('## SIMULADOR DOS PRODUTOS SELECIONADOS (DIGITE UMA PORCETAGEM)')
-        percentual = st.number_input("Digite um Desconto:", min_value=0.0, max_value=100.0, step=0.1)
+        percentual = st.number_input("Digite um Desconto:", min_value=0.0, max_value=11.0, step=0.1)
         st.text(f"Tabela seguindos o desconto informado de {percentual}")
         df = tratamento(percentual, df_order_elasticity )
         st.dataframe(df)
@@ -75,7 +75,7 @@ with tab1:
         #SOMATÓRIA NEGATIVA
         if len(negativo) > 0:
             st.markdown('## VALORES NEGATIVOS (PERCENTUAIS NEGATIVOS)')
-            st.text(f"Esses foram os produtos que não existia compensação financeira aplicando os desconto selecionado, não iremos conseguir vender mais para compensar a perda de faturamento")
+            st.text(f"Esses foram os produtos que não existe compensação financeiro")
 
             deficit =  negativo["variacao_faturamento"].sum()
 
